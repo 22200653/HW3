@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload = function () {
+            const inputBox = document.getElementById("inputBox");
+            const addBtn = document.getElementById("addBtn");
+            const delBtn = document.getElementById("delBtn");
+            const list = document.getElementById("list");
+
+            addBtn.addEventListener("click", function () {
+                const text = inputBox.value.trim();
+                if (text) {
+                    const items = text.split(",");
+                    for (let i = 0; i < items.length; i++) {
+                        const li = document.createElement("li");
+                        li.innerHTML = items[i].trim();
+                        list.appendChild(li);
+                    }
+                }
+                inputBox.value = "";
+            });
+
+            delBtn.addEventListener("click", function () {
+                list.innerHTML = "";
+            })
+        };
+
+    </script>
+</head>
+
+<body>
+
+    <h1>Dynamic Web page</h1>
+    <input type="text" id="inputBox">
+    <button id="addBtn">추가</button>
+    <button id="delBtn">삭제</button>
+
+    <ul id="list"></ul>
+
+</body>
+
+</html>
